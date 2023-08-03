@@ -21,11 +21,24 @@ function openDaumPostcode() {
    
 }
 
+function checkPassword() {
+	  var password = document.getElementById('password').value;
+	  var password2 = document.getElementById('password2').value;
+
+	  if (password === password2) {
+	    alert('비밀번호가 일치합니다.');
+	  } else {
+	    alert('비밀번호가 일치하지 않습니다. 다시 입력해주세요.');
+	  }
+	}
+
+	
 </script>
 </head>
 <body>
-   
-   <form action="${pageContext.request.contextPath }/JoinController" method="post" enctype="multipart/form-data" id="tab" name="tab" class="tab">
+   <%-- 이미지 넣으면  enctype="multipart/form-data" 넣고 서블릿도 바꾸기  --%>
+   <form action="${pageContext.request.contextPath }/JoinController" 
+   method="post"  id="tab" name="editFrom" class="tab">
    
       <h5 class="empty1">아이디</h5>
       <input type="text" name="id" id="id"/>
@@ -41,6 +54,7 @@ function openDaumPostcode() {
       <h5 class="empty">비밀번호 확인</h5>
       <input type="password" name="password2" id="password2" class="mem"/>
 
+	  
 	  <%-- 비밀번호 확인 스크립트 한개 만들기  --%>
 
 
@@ -58,8 +72,8 @@ function openDaumPostcode() {
       <input type="radio" name="type" id="type" value="1"/>일반회원
       <input type="radio" name="type" id="type" value="2"/>판매자
       
-      
-      <h5 class="empty">우편번호</h5>
+
+      <h5 class="empty" >우편번호</h5>
       <input type="text" name="mem_post" id="mem_post" readonly>
       <input type="button" value="우편번호검색" onClick="openDaumPostcode()"/>
       
@@ -68,16 +82,17 @@ function openDaumPostcode() {
       
       <h5 class="empty">상세주소</h5>
       <input type="text" name="mem_addr2" id="mem_addr2" class="mem"/>
-      
+
+
        <%-- address변수에 mem_post,mem_addr1,mem_addr2 다 넣기 --%>
        
        
        <h5 class="empty">생일</h5>
-      <input type="text" name="mem_birth" id="datepicker"/>
+      <input type="date" name="birth" id="birth"/>
       
       
       <h5 class="empty">이메일</h5>
-      <input type="text" name="mem_email" id="mem_email"/>@<input type="text" name="mem_domain" id="mem_domain"/>
+      <input type="text" name="email" id="email"/>@<input type="text" name="mem_domain" id="mem_domain"/>
       <select id="mail_list" onchange="domain_list()">
          <option value="">직접입력</option>
          <option value="daum.net">daum.net</option>
@@ -86,9 +101,8 @@ function openDaumPostcode() {
          <option value="hotmail.com">hotmail.com</option>
          <option value="gmail.com">gmail.com</option>
       </select>
-      
-      <h5 class="empty">프로필</h5>
-      <input type="file" id="mem_profile" name="mem_profile1" />
+      <br>
+      <br> 
       
       <div class="position1">
       <input type="submit" value="회원가입" id="sign_up"/>

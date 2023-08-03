@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Game Shop login</title>
 </head>
 <style>
@@ -57,17 +57,17 @@
 </header>
 <main>
     <div class="maintext">
-        <form method="post">
+        <form action="${pageContext.request.contextPath}/LoginController"  method="post">
             <div class="information">
                 <input type="text" placeholder="아이디를 입력하시오." name="id"><br>
-                <input type="password" placeholder="비밀번호를 입력하시오." name="pwd"><br>
+                <input type="password" placeholder="비밀번호를 입력하시오." name="password"><br>
                 <input type="submit" value="로그인" name="rogin" style="background-color: rgb(152, 207, 250);">
             </div>
         </form>
         <div class="find">
             <a>아이디 찾기</a>
             <a>비밀번호 찾기</a>
-            <a>회원가입</a>
+            <a href="${pageContext.request.contextPath }/member/editForm.jsp">회원가입</a>
         </div>
     </div>
 </main>
