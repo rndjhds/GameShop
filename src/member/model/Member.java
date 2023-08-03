@@ -9,13 +9,11 @@ public class Member {
 	private String tel;
 	private String address;
 	private int type;
-	private int delete;
 
 	public Member() {
 	}
 
-	public Member(String id, String password, String email, String birth, String tel, String address, int type,
-			int delete) {
+	public Member(String id, String password, String email, String birth, String tel, String address, int type) {
 		super();
 		this.id = id;
 		this.password = password;
@@ -24,7 +22,6 @@ public class Member {
 		this.tel = tel;
 		this.address = address;
 		this.type = type;
-		this.delete = delete;
 	}
 
 	public String getId() {
@@ -83,18 +80,12 @@ public class Member {
 		this.type = type;
 	}
 
-	public int getDelete() {
-		return delete;
-	}
-
-	public void setDelete(int delete) {
-		this.delete = delete;
-	}
-
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", password=" + password + ", email=" + email + ", birth=" + birth + ", tel=" + tel
-				+ ", address=" + address + ", type=" + type + ", delete=" + delete + "]";
+				+ ", address=" + address + ", type=" + type + "]";
 	}
+
+	
 
 }

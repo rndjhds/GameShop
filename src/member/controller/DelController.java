@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import member.serivce.JoinService;
+import member.serivce.JoinServicempl;
+
 
 
 /**
@@ -35,6 +38,33 @@ public class DelController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	
+		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html; charset=EUC-KR");
+		response.setCharacterEncoding("euc-kr");
+		
+		JoinService service = new JoinServicempl();
+		
+		HttpSession session = request.getSession(false);
+
+		// 세션에서 로그인 한 id 읽는다.
+		String id = (String) session.getAttribute("id");
+
+		// 세션 무효화
+		session.invalidate();
+		
+		service.delMember(id);
+
+		// 메뉴 페이지로 이동
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/loginForm.jsp");
+		if (dispatcher != null) {
+			dispatcher.forward(request, response);
+		}
+		
+		
+		
+		
+		
+		
 	}
 
 	/**

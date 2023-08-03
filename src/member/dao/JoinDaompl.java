@@ -106,25 +106,25 @@ public class JoinDaompl implements JoinDao{
 		
 		Connection conn = null;
 		
-		String sql = "update G_Member set password=?, email=?, birth=?, tel=?, address=? type=? where id=?";
+		String sql = "update G_Member set password=?, email=?, birth=?, tel=?, address=?, type=? where id=?";
 
 		PreparedStatement pstmt = null;
 		try {
-			// Ŀ�ؼ� ��ü ȹ��
+
 			conn = db.getConnection();
 
-			// java���� sql�� �����ϴ� PreparedStatement��ü ����
+
 			pstmt = conn.prepareStatement(sql);
 
-			// sql�� ?�Ķ���� ��Ī
+
 			pstmt.setString(1, m.getPassword());
 			pstmt.setString(2, m.getEmail());
 			pstmt.setString(3, m.getBirth());
 			pstmt.setString(4, m.getTel());
 			pstmt.setString(5, m.getAddress());
 			pstmt.setInt(6, m.getType());
+			pstmt.setString(7, m.getId());
 			
-			// sql����
 			pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -147,6 +147,26 @@ public class JoinDaompl implements JoinDao{
 	public void delete(String id) {
 		// TODO Auto-generated method stub
 		
+		Connection conn = null;
+		
+		String sql = "delete G_Member where id=?";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+		
+		
+		
 	}
 
-}
+

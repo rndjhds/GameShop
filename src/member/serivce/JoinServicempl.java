@@ -34,7 +34,7 @@ public class JoinServicempl implements JoinService{
 	@Override
 	public void delMember(String id) {
 		// TODO Auto-generated method stub
-		
+		dao.delete(id);
 	}
 
 }
