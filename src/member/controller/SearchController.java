@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import member.model.Member;
+import member.serivce.JoinService;
+import member.serivce.JoinServicempl;
+
 /**
  * Servlet implementation class SearchController
  */
@@ -31,6 +35,34 @@ public class SearchController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html; charset=EUC-KR");
+		response.setCharacterEncoding("euc-kr");
+		
+		JoinService service = new JoinServicempl();
+		
+		HttpSession session = request.getSession(false);
+
+		// 세션에 저장한 id 즉 로그인한 id를 읽는다.
+		String id = (String) session.getAttribute("id");
+
+		// 로그인한 id로 멤버 정보 검색
+		Member m = service.getMember(id);
+		
+		request.setAttribute("m", m);
+
+		// 정보 페이지로 이동
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/updateUser.jsp");
+		if (dispatcher != null) {
+			dispatcher.forward(request, response);
+		}
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	/**

@@ -1,99 +1,146 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>íšŒì› ê°€ì…</title>
+    <meta charset="EUC-KR">
+    <title>È¸¿ø °¡ÀÔ</title>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script>
+        // ¿ìÆí¹øÈ£, ÁÖ¼Ò Daum API
+        function openDaumPostcode() {
+            new daum.Postcode({
+                oncomplete : function(data) {            
+                    // ÆË¾÷¿¡¼­ °Ë»ö°á°ú Ç×¸ñÀ» Å¬¸¯ÇßÀ»¶§ ½ÇÇàÇÒ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ºÎºĞ.
+                    // ¿ìÆí¹øÈ£¿Í ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö°í, Ä¿¼­¸¦ »ó¼¼ÁÖ¼Ò ÇÊµå·Î ÀÌµ¿ÇÑ´Ù.
+                    document.getElementById('mem_post').value = data.zonecode;
+                    document.getElementById('mem_addr1').value = data.address;            
+                }
+            }).open();
+        }
 
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script>
-//ìš°í¸ë²ˆí˜¸, ì£¼ì†Œ Daum API
-function openDaumPostcode() {
-   new daum.Postcode({
-      oncomplete : function(data) {            
-         // íŒì—…ì—ì„œ ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì„ í´ë¦­í–ˆì„ë•Œ ì‹¤í–‰í•  ì½”ë“œë¥¼ ì‘ì„±í•˜ëŠ” ë¶€ë¶„.
-         // ìš°í¸ë²ˆí˜¸ì™€ ì£¼ì†Œ ì •ë³´ë¥¼ í•´ë‹¹ í•„ë“œì— ë„£ê³ , ì»¤ì„œë¥¼ ìƒì„¸ì£¼ì†Œ í•„ë“œë¡œ ì´ë™í•œë‹¤.
-         document.getElementById('mem_post').value = data.zonecode;
-         document.getElementById('mem_addr1').value = data.address;            
-      }
-   }).open();
-   
-}
+        function checkPassword() {
+            var password = document.getElementById('password').value;
+            var password2 = document.getElementById('password2').value;
 
-</script>
+            if (password === password2) {
+                alert('ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÕ´Ï´Ù.');
+            } else {
+                alert('ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.');
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .main-container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h5 {
+            color: #3e97db;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .position1 {
+            text-align: center;
+            margin-top: 10px;
+        }
+        #sign_up {
+            background-color: #3e97db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #sign_up:hover {
+            background-color: #1a66a9;
+        }
+    </style>
 </head>
 <body>
-   
-   <form action="${pageContext.request.contextPath }/JoinController" method="post" enctype="multipart/form-data" id="tab" name="tab" class="tab">
-   
-      <h5 class="empty1">ì•„ì´ë””</h5>
-      <input type="text" name="id" id="id"/>
-      <input type="button" value="ì¤‘ë³µí™•ì¸" onClick="idCheck()"/>
-      <div id="tex"></div>
-      
-      
-      <h5 class="empty">ë¹„ë°€ë²ˆí˜¸</h5>
-      <input type="password" name="password" id="password" class="mem"/>
-      
-      
-      
-      <h5 class="empty">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</h5>
-      <input type="password" name="password2" id="password2" class="mem"/>
-
-	  <%-- ë¹„ë°€ë²ˆí˜¸ í™•ì¸ ìŠ¤í¬ë¦½íŠ¸ í•œê°œ ë§Œë“¤ê¸°  --%>
-
-
-      <h5 class="empty">ì „í™”ë²ˆí˜¸</h5>
-      <select name="mem_phone1">
-         <option value="010">010</option>
-         <option value="011">011</option>
-         <option value="012">012</option>
-         <option value="013">013</option>
-      </select>-
-      <input type="text" name="tel" id="tel"/>
-      
-
-      <h5 class="empty">íšŒì›ìœ í˜•</h5>
-      <input type="radio" name="type" id="type" value="1"/>ì¼ë°˜íšŒì›
-      <input type="radio" name="type" id="type" value="2"/>íŒë§¤ì
-      
-      
-      <h5 class="empty">ìš°í¸ë²ˆí˜¸</h5>
-      <input type="text" name="mem_post" id="mem_post" readonly>
-      <input type="button" value="ìš°í¸ë²ˆí˜¸ê²€ìƒ‰" onClick="openDaumPostcode()"/>
-      
-      <h5 class="empty">ì£¼ì†Œ</h5>
-      <input type="text" name="mem_addr1" id="mem_addr1" class="mem" readonly/>
-      
-      <h5 class="empty">ìƒì„¸ì£¼ì†Œ</h5>
-      <input type="text" name="mem_addr2" id="mem_addr2" class="mem"/>
-      
-       <%-- addressë³€ìˆ˜ì— mem_post,mem_addr1,mem_addr2 ë‹¤ ë„£ê¸° --%>
-       
-       
-       <h5 class="empty">ìƒì¼</h5>
-      <input type="text" name="mem_birth" id="datepicker"/>
-      
-      
-      <h5 class="empty">ì´ë©”ì¼</h5>
-      <input type="text" name="mem_email" id="mem_email"/>@<input type="text" name="mem_domain" id="mem_domain"/>
-      <select id="mail_list" onchange="domain_list()">
-         <option value="">ì§ì ‘ì…ë ¥</option>
-         <option value="daum.net">daum.net</option>
-         <option value="nate.com">nate.com</option>
-         <option value="naver.com">naver.com</option>
-         <option value="hotmail.com">hotmail.com</option>
-         <option value="gmail.com">gmail.com</option>
-      </select>
-      
-      <h5 class="empty">í”„ë¡œí•„</h5>
-      <input type="file" id="mem_profile" name="mem_profile1" />
-      
-      <div class="position1">
-      <input type="submit" value="íšŒì›ê°€ì…" id="sign_up"/>
-      </div>
-   </form>
-   </div>
+    <div class="main-container">
+        <form action="${pageContext.request.contextPath }/JoinController" method="post" id="tab" name="editFrom" class="tab">
+            <h5 class="empty1">¾ÆÀÌµğ</h5>
+            <input type="text" name="id" id="id"/>
+            <input type="button" value="Áßº¹È®ÀÎ" onClick="idCheck()"/>
+            <div id="tex"></div>
+            
+            <h5 class="empty">ºñ¹Ğ¹øÈ£</h5>
+            <input type="password" name="password" id="password" class="mem"/>
+            
+            <h5 class="empty">ºñ¹Ğ¹øÈ£ È®ÀÎ</h5>
+            <input type="password" name="password2" id="password2" class="mem"/>
+            
+            <h5 class="empty">ÀüÈ­¹øÈ£</h5>
+			<div style="display: flex;">
+			    <select name="mem_phone1" style="width: 70px;">
+			        <option value="010">010</option>
+			        <option value="011">011</option>
+			        <option value="012">012</option>
+			        <option value="013">013</option>
+			    </select>
+			    <span style="width: 10px;"></span>
+			    <input type="text" name="tel" id="tel" style="flex: 1;">
+			</div>
+            
+            <h5 class="empty">È¸¿øÀ¯Çü</h5>
+            <input type="radio" name="type" id="type" value="1"/>ÀÏ¹İÈ¸¿ø
+            <input type="radio" name="type" id="type" value="2"/>ÆÇ¸ÅÀÚ
+            
+            <h5 class="empty">¿ìÆí¹øÈ£</h5>
+            <input type="text" name="mem_post" id="mem_post" readonly>
+            <input type="button" value="¿ìÆí¹øÈ£°Ë»ö" onClick="openDaumPostcode()"/>
+            
+            <h5 class="empty">ÁÖ¼Ò</h5>
+            <input type="text" name="mem_addr1" id="mem_addr1" class="mem" readonly/>
+            
+            <h5 class="empty">»ó¼¼ÁÖ¼Ò</h5>
+            <input type="text" name="mem_addr2" id="mem_addr2" class="mem"/>
+            
+            <h5 class="empty">»ıÀÏ</h5>
+            <input type="date" name="birth" id="birth"/>
+            
+           <h5 class="empty">ÀÌ¸ŞÀÏ</h5>
+			<div style="display: flex;">
+			    <input type="text" name="email" id="email" style="flex: 1;"/>
+			    <span></span>
+			    <input type="text" name="mem_domain" id="mem_domain" style="flex: 1;"/>
+			    <select id="mail_list" onchange="domain_list()" style="flex: 1;">
+			        <option value="">Á÷Á¢ÀÔ·Â</option>
+			        <option value="daum.net">daum.net</option>
+			        <option value="nate.com">nate.com</option>
+			        <option value="naver.com">naver.com</option>
+			        <option value="hotmail.com">hotmail.com</option>
+			        <option value="gmail.com">gmail.com</option>
+			    </select>
+			</div>
+            <br>
+            <br>
+            <div class="position1">
+                <input type="submit" value="È¸¿ø°¡ÀÔ" id="sign_up"/>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

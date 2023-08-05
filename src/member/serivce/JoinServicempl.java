@@ -1,34 +1,40 @@
 package member.serivce;
 
 import member.dao.JoinDao;
+import member.dao.JoinDaompl;
 import member.model.Member;
 
 public class JoinServicempl implements JoinService{
 
 	private JoinDao dao;
 	
+    public JoinServicempl() {
+        this.dao = new JoinDaompl();
+    }
+    
 	@Override
 	public void join(Member m) {
 		// TODO Auto-generated method stub
-		
+		dao.insert(m);
 	}
 
 	@Override
 	public Member getMember(String id) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.select(id);
 	}
 
 	@Override
 	public void editMember(Member m) {
 		// TODO Auto-generated method stub
+		dao.update(m);
 		
 	}
 
 	@Override
 	public void delMember(String id) {
 		// TODO Auto-generated method stub
-		
+		dao.delete(id);
 	}
 
 }

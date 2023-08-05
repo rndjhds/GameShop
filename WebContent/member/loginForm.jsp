@@ -3,7 +3,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script type="text/javascript">
+
+
+function validateForm() {
+    var id = document.forms["loginForm"]["id"].value;
+    var password = document.forms["loginForm"]["password"].value;
+
+    if (id === "") {
+        alert("아이디를 입력해주세요.");
+        return false;
+    }
+
+    if (password === "") {
+        alert("비밀번호를 입력해주세요.");
+        return false;
+    }
+}
+
+</script>
 <title>Game Shop login</title>
 </head>
 <style>
@@ -29,6 +48,7 @@
         margin-right: auto;
         border-radius: 20px;
     }
+    
     input{
         border-radius: 10px;
         border-width: 1px;
@@ -43,6 +63,20 @@
     .find>a{
         padding-right: 40px;
     }
+    
+       input[type="submit"] {
+        background-color: rgb(152, 207, 250);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    	input[type="submit"]:active {
+        background-color: rgb(112, 177, 230); /* 눌렀을 때의 배경색 변경 */
+    }
+    
 </style>
 <body>
 <header>
@@ -57,17 +91,17 @@
 </header>
 <main>
     <div class="maintext">
-        <form method="post">
+        <form name="loginForm" action="${pageContext.request.contextPath}/LoginController" method="post" onsubmit="return validateForm();">
             <div class="information">
                 <input type="text" placeholder="아이디를 입력하시오." name="id"><br>
-                <input type="password" placeholder="비밀번호를 입력하시오." name="pwd"><br>
+                <input type="password" placeholder="비밀번호를 입력하시오." name="password"><br>
                 <input type="submit" value="로그인" name="rogin" style="background-color: rgb(152, 207, 250);">
             </div>
         </form>
         <div class="find">
             <a>아이디 찾기</a>
             <a>비밀번호 찾기</a>
-            <a>회원가입</a>
+            <a href="${pageContext.request.contextPath }/member/editForm.jsp">회원가입</a>
         </div>
     </div>
 </main>

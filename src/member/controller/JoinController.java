@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import member.serivce.JoinService;
+import member.serivce.JoinServicempl;
+import member.model.*;
+
+
 
 /**
  * Servlet implementation class JoinController
@@ -32,7 +37,41 @@ public class JoinController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// 요청과 응답의 인코딩 설정
+		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html; charset=EUC-KR");
+		response.setCharacterEncoding("euc-kr");
+		
+		JoinService service = new JoinServicempl();
+		
+		
+		String mem_post = request.getParameter("mem_post");
+		String mem_addr1 = request.getParameter("mem_addr1");
+		String mem_addr2 = request.getParameter("mem_addr2");
+		
+		
+		String id = request.getParameter("id");
+		System.out.println("id : "  + id);
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		String birth = request.getParameter("birth");
+		String tel = request.getParameter("tel");
+		String address = mem_post + "/" + mem_addr1 + "/" + mem_addr2;
+		int type = Integer.parseInt(request.getParameter("type"));
+	   
+		Member m = new Member
+				(id, password, email, birth, tel, address, type);	
+		
 
+		service.join(m);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/loginForm.jsp");
+		if (dispatcher != null) {
+			dispatcher.forward(request, response);
+		}
+		
+		
+		
+		
 	}
 
 	/**
@@ -43,6 +82,8 @@ public class JoinController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		
 	}
 
 }
