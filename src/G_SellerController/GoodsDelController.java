@@ -1,5 +1,6 @@
-package Controller;
+package G_SellerController;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -7,23 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import G_Service.Service;
 import G_Service.ServiceImpl;
 import model.Goods;
 
 /**
- * Servlet implementation class Controller
+ * Servlet implementation class GoodsDelController
  */
-@WebServlet("/Controller")
-public class Controller extends HttpServlet {
+@WebServlet("/GoodsDelController")
+public class GoodsDelController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Controller() {
+    public GoodsDelController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,8 +33,16 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("test");
+		int num = Integer.parseInt(request.getParameter("num"));
+		Service service = new ServiceImpl();
+		Goods g = service.getProduct(num);
+		service.delProduct(num);
+		String uploadPath = "C:\\Users\\simse\\OneDrive\\바탕 화면\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps";
+		String[] arr = g.getImg().split("/");
+		String fname = arr[arr.length-1];
+		File f = new File(uploadPath+fname);
+		f.delete();
+		response.sendRedirect("/shop2/seller/List");
 	}
 
 	/**

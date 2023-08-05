@@ -1,7 +1,9 @@
-package Controller;
+package G_SellerController;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +16,16 @@ import G_Service.ServiceImpl;
 import model.Goods;
 
 /**
- * Servlet implementation class Controller
+ * Servlet implementation class ListController
  */
-@WebServlet("/Controller")
-public class Controller extends HttpServlet {
+@WebServlet("/ListController")
+public class ListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Controller() {
+    public ListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,8 +35,16 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("test");
+		Service service = new ServiceImpl();
+		HttpSession session = request.getSession(false);
+		String s_id=(String)session.getAttribute("id");
+		ArrayList<Goods> Goodss = service.getGoodsById(s_id);
+		request.setAttribute("Goodss", Goodss);
+		String path = "/G.view/seller/list.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(path);
+		rd.forward(request, response);
+		
+		
 	}
 
 	/**

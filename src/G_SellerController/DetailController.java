@@ -1,7 +1,8 @@
-package Controller;
+package G_SellerController;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +15,16 @@ import G_Service.ServiceImpl;
 import model.Goods;
 
 /**
- * Servlet implementation class Controller
+ * Servlet implementation class DetailController
  */
-@WebServlet("/Controller")
-public class Controller extends HttpServlet {
+@WebServlet("/DetailController")
+public class DetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Controller() {
+    public DetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,8 +34,24 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("test");
+
+		String path = "/view/seller/detail.jsp";
+		
+		HttpSession session = request.getSession(false);
+
+		int type = (Integer) session.getAttribute("memberType");
+		int num = Integer.parseInt(request.getParameter("num"));
+
+		Service service = new ServiceImpl();
+
+		Goods g = service.getProduct(num);
+		request.setAttribute("g", g);
+		if (type == 2) {
+			path = "/view/order/detail.jsp";
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher(path);
+		rd.forward(request, response);
 	}
 
 	/**
