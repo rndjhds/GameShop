@@ -1,7 +1,4 @@
-/G_Dao/
-/G_SellerController/
-/G_SellerService/
-/G/
-/G_OrderController/
-/member/
-/G_OrderDao/
+/B_Controller/
+/B_dao/
+/B_model/
+/B_service/

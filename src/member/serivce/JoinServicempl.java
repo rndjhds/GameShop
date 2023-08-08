@@ -12,10 +12,18 @@ public class JoinServicempl implements JoinService{
         this.dao = new JoinDaompl();
     }
     
+    
 	@Override
 	public void join(Member m) {
 		// TODO Auto-generated method stub
 		dao.insert(m);
+	}
+	
+	@Override
+	public void joinimg(Member m) {
+		// TODO Auto-generated method stub
+		dao.insertImg(m);
+		
 	}
 
 	@Override
@@ -37,4 +45,18 @@ public class JoinServicempl implements JoinService{
 		dao.delete(id);
 	}
 
+	@Override
+    public String getUrl(String id) {
+        return dao.selectUrlById(id);
+    }
+
+
+	@Override
+	public void deleteImage(String memberId) {
+		// TODO Auto-generated method stub
+		dao.deleteImage(memberId);
+		
+	}
+	
+	
 }
