@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import G_Service.Service;
-import G_Service.ServiceImpl;
-import model.Goods;
+import G.model.SellerMember;
+import G_SellerService.Service;
+import G_SellerService.ServiceImpl;
 
 /**
  * Servlet implementation class GoodsDelController
  */
-@WebServlet("/GoodsDelController")
+@WebServlet("/seller/Del")
 public class GoodsDelController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,16 +33,19 @@ public class GoodsDelController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int num = Integer.parseInt(request.getParameter("num"));
+		int seq = Integer.parseInt(request.getParameter("seq"));
 		Service service = new ServiceImpl();
-		Goods g = service.getProduct(num);
-		service.delProduct(num);
-		String uploadPath = "C:\\Users\\simse\\OneDrive\\바탕 화면\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps";
+		SellerMember g = service.getProduct(seq);
+		service.delProduct(seq);
+		String uploadPath = "C:\\Users\\simse\\OneDrive\\바탕 화면\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\Game_img";
+		
 		String[] arr = g.getImg().split("/");
 		String fname = arr[arr.length-1];
-		File f = new File(uploadPath+fname);
+		File f = new File(uploadPath+'\\'+fname);
+		System.out.println(uploadPath+'\\'+fname);
+		System.out.println(f.delete());
 		f.delete();
-		response.sendRedirect("/shop2/seller/List");
+		response.sendRedirect(request.getContextPath()+"/ListController");
 	}
 
 	/**

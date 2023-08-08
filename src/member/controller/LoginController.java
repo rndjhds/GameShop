@@ -77,7 +77,7 @@ public class LoginController extends HttpServlet {
 
 	        if (loginSuccess) {
 	            // 로그인 성공 시 메인 페이지로 이동
-	            RequestDispatcher dispatcher = request.getRequestDispatcher("/member/testMain.jsp");
+	            RequestDispatcher dispatcher = request.getRequestDispatcher(request.getContextPath()+"/ListController");
 	            if (dispatcher != null) {
 	                dispatcher.forward(request, response);
 	            }

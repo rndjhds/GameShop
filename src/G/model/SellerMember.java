@@ -1,6 +1,6 @@
-package model;
+package G.model;
 
-public class Goods {
+public class SellerMember {
 	
 	private int seq;
 	private String product_name;
@@ -12,11 +12,11 @@ public class Goods {
 	private String mod_date;
 	private String delete_yn;
 	private String img;
-	public Goods() {
+	public SellerMember() {
 		super();
 	}
-	public Goods(int seq, String product_name, int price, String content, String register, String reg_date,
-			String modifier, String mod_date, String delete_yn, String img) {
+	public SellerMember(int seq, String product_name, int price, String content, String register, String reg_date,
+			String modifier, String mod_date, String delete_yn) {
 		super();
 		this.seq = seq;
 		this.product_name = product_name;
@@ -27,7 +27,6 @@ public class Goods {
 		this.modifier = modifier;
 		this.mod_date = mod_date;
 		this.delete_yn = delete_yn;
-		this.img = img;
 	}
 	public int getSeq() {
 		return seq;

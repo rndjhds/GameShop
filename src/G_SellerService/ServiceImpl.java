@@ -1,10 +1,10 @@
-package G_Service;
+package G_SellerService;
 
 import java.util.ArrayList;
 
+import G.model.SellerMember;
 import G_Dao.Dao;
 import G_Dao.DaoImpl;
-import model.Goods;
 
 public class ServiceImpl implements Service{
 	
@@ -15,32 +15,36 @@ public class ServiceImpl implements Service{
 	}
 
 	@Override
-	public void add(Goods g) {
+	public void add(SellerMember g) {
+		g.setSeq(dao.selectNum());
 		// TODO Auto-generated method stub
 		dao.insert(g);
+		dao.insertImg(g);
 	}
 
 	@Override
-	public ArrayList<Goods> getGoodsById(String s_id) {
+	public ArrayList<SellerMember> getGoodsById(String s_id) {
+		// TODO Auto-generated method stub
+		return dao.getGoodsById(s_id);
+	}
+
+	@Override
+	public SellerMember getGoods(int num) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Goods getGoods(int num) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void editGoods(Goods g) {
+	public void editGoods(SellerMember g) {
 		dao.update(g);
+		dao.updateImg(g);
 		
 	}
 
 	@Override
 	public void delGoods(int num) {
 		// TODO Auto-generated method stub
+		dao.delete(num);
 		
 	}
 
@@ -51,33 +55,27 @@ public class ServiceImpl implements Service{
 	}
 
 	@Override
-	public ArrayList<Goods> getGoodsAll() {
+	public ArrayList<SellerMember> getGoodsAll() {
 		// TODO Auto-generated method stub
 		return dao.selectAll();
 	}
 
 	@Override
-	public Goods editQuantity(int q, int num) {
+	public SellerMember editQuantity(int q, int num) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void editProduct(Goods g) {
+	public SellerMember getProduct(int num) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Goods getProduct(int num) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getProduct(num);
 	}
 
 	@Override
 	public void delProduct(int num) {
 		// TODO Auto-generated method stub
-		
+		dao.delete(num);
 	}
 
 }

@@ -2,23 +2,31 @@ package G_Dao;
 
 import java.util.ArrayList;
 
-import model.Goods;
+import G.model.SellerMember;
 
 public interface Dao {
-	
+	/* 서비스마다 주석달아놓기 */
 	int selectNum();
 	
-	void insert(Goods g);
+	void insert(SellerMember g);
 	
-	ArrayList<Goods>selectAllByname(String s_name);
+	ArrayList<SellerMember>selectAllByname(String s_name);
 	
-	Goods select(int num);
+	SellerMember select(int num);
 	
-	void update(Goods g);
+	void update(SellerMember g);
 	
 	void delete(int num);
 	
-	ArrayList<Goods> selectAll();
+	ArrayList<SellerMember> selectAll();
+
+	void insertImg(SellerMember g);
+	
+	ArrayList<SellerMember> getGoodsById(String s_id);
+	
+	SellerMember getProduct(int seq);
+	
+	void updateImg(SellerMember g);
+	}
 	
 
-}

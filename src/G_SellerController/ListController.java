@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import G_Service.Service;
-import G_Service.ServiceImpl;
-import model.Goods;
+import G.model.SellerMember;
+import G_SellerService.Service;
+import G_SellerService.ServiceImpl;
 
 /**
  * Servlet implementation class ListController
@@ -38,7 +38,7 @@ public class ListController extends HttpServlet {
 		Service service = new ServiceImpl();
 		HttpSession session = request.getSession(false);
 		String s_id=(String)session.getAttribute("id");
-		ArrayList<Goods> Goodss = service.getGoodsById(s_id);
+		ArrayList<SellerMember> Goodss = service.getGoodsById(s_id);
 		request.setAttribute("Goodss", Goodss);
 		String path = "/G.view/seller/list.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);

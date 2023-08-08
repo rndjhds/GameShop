@@ -1,4 +1,4 @@
-package G_SellerController;
+package G_OrderController;
 
 import java.io.IOException;
 
@@ -14,16 +14,16 @@ import G_SellerService.Service;
 import G_SellerService.ServiceImpl;
 
 /**
- * Servlet implementation class AddFormController
+ * Servlet implementation class DetailController
  */
-@WebServlet("/AddFormController")
-public class AddFormController extends HttpServlet {
+@WebServlet(name = "OrderDetailController", urlPatterns = { "/OrderDetailController" })
+public class DetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddFormController() {
+    public DetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,31 +33,18 @@ public class AddFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("euc-kr");
-		response.setContentType("text/html; charset=EUC-KR");
-		response.setCharacterEncoding("euc-kr");
 		
-		Service service = new ServiceImpl();
-		
-		int seq = Integer.parseInt(request.getParameter("seq"));
-		String Product_name = request.getParameter("Product_name");
-		int price = Integer.parseInt(request.getParameter("price"));
-		String Content = request.getParameter("Content");
-		String Register = request.getParameter("Register");
-		String reg_date = request.getParameter("reg_date");
-		String modifier = request.getParameter("modifier");
-		String mod_date = request.getParameter("mod_date");
-		String delete_yn = request.getParameter("delete_yn");
-		
-		SellerMember g = new SellerMember(seq, Product_name, price, Content, Register, reg_date, modifier, mod_date, delete_yn );
-		
-		service.add(g);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/G.view/seller/list.jsp");
-		if (dispatcher != null) {
-			dispatcher.forward(request, response);
-		}
+		String path = "/G.view/order/detail.jsp";
 
+		int seq = Integer.parseInt(request.getParameter("seq"));
+
+		Service service = new ServiceImpl();
+
+		SellerMember g = service.getProduct(seq);
+		request.setAttribute("g", g);
+		
+		RequestDispatcher rd = request.getRequestDispatcher(path);
+		rd.forward(request, response);
 	}
 
 	/**

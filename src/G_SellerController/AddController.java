@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import G_Service.Service;
-import G_Service.ServiceImpl;
-import model.Goods;
+import G.model.SellerMember;
+import G_SellerService.Service;
+import G_SellerService.ServiceImpl;
 
 /**
  * Servlet implementation class AddController
@@ -42,9 +42,9 @@ public class AddController extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);
 		String s_id=(String) session.getAttribute("id");
-		Goods g = new Goods();
-		g.setProduct_name(s_id);
-		g.setSeq(service.makeSeq());
+		SellerMember sellerMember = new SellerMember();
+		sellerMember.setRegister(s_id);
+		sellerMember.setSeq(service.makeSeq());
 		
 		String img="";
 		
@@ -54,9 +54,9 @@ public class AddController extends HttpServlet {
 		
 		try {
 			multi= new MultipartRequest(request, uploadPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
-			g.setProduct_name(multi.getParameter("name"));
-			g.setPrice(Integer.parseInt(multi.getParameter("price")));
-			g.setContent(multi.getParameter("content"));
+			sellerMember.setProduct_name(multi.getParameter("name"));
+			sellerMember.setPrice(Integer.parseInt(multi.getParameter("price")));
+			sellerMember.setContent(multi.getParameter("content"));
 			
 			Enumeration files = multi.getFileNames();
 			
@@ -71,9 +71,9 @@ public class AddController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		g.setImg("/Game_img/"+img);
-		service.add(g);
-		response.sendRedirect("/");
+		sellerMember.setImg("/Game_img/"+img);
+		service.add(sellerMember);
+		response.sendRedirect(request.getContextPath()+"/ListController");
 		
 		
 		
