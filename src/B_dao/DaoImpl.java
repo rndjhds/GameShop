@@ -58,14 +58,15 @@ public class DaoImpl implements DAO{
 	public void inset(B_Product p) {
 		// TODO Auto-generated method stub
 		Connection conn = db.getConnection();
-		String sql = "insert into G_Board(seq,title1,content,register,category) values(?,?,?,'Max',?)";
+		String sql = "insert into G_Board(seq,title,content,register,category) values(?,?,?,'Max',?)";
 		PreparedStatement pstmt = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, p.getTitle());
-			pstmt.setString(2, p.getContent());
-			pstmt.setInt(3, p.getCategory());
+			pstmt.setInt(1, p.getSeq());
+			pstmt.setString(2, p.getTitle());
+			pstmt.setString(3, p.getContent());
+			pstmt.setInt(4, p.getCategory());
 			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -213,4 +214,32 @@ public class DaoImpl implements DAO{
 		return seq;
 	}
 
+
+	@Override
+	public void updateImg(B_Product p) {
+		// TODO Auto-generated method stub
+		Connection conn = db.getConnection();
+		String sql = "update g_img set url = ? where g_board_seq =? ";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p.getUrl());
+			pstmt.setInt(2, p.getSeq());
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+
+	
 }

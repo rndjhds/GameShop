@@ -13,6 +13,8 @@ public interface DAO {
 	
 	void insertImg(B_Product p);
 	
+	void updateImg(B_Product p);
+	
 	int selectGBoardSeq();
 	
 	void update(B_Product p);
@@ -20,6 +22,5 @@ public interface DAO {
 	void delete(int num);
 	
 	ArrayList<B_Product> selectAll();
-	
 	
 }

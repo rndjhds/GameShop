@@ -29,6 +29,9 @@ public class B_addFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+	     response.setContentType("text/html; charset=UTF-8");
+	     response.setCharacterEncoding("UTF-8");
 		String path = "/B_board/B_addForm.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);

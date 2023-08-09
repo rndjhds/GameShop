@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/B_board/B_add" method="post">
+<form action="${pageContext.request.contextPath }/B_board/B_add" method="post"
+enctype="multipart/form-data">
 제목 : <input type="text" name="title"><br>
 작성자 : Max <br>
 카테고리

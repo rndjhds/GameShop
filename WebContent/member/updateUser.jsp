@@ -109,7 +109,7 @@ function openDaumPostcode() {
 <c:if test="${not empty m }">
     <div class="main-container">
         <h3>내정보 수정</h3>
-        <form action="${pageContext.request.contextPath }/EditController" method="post" enctype="multipart/form-data">
+        <form action="${pageContext.request.contextPath }/EditController" method="post">
             <div class="input-group">
                 <label for="id">아이디</label>
                 <input type="text" name="id" id="id" value="${m.id}" readonly/>
@@ -180,22 +180,7 @@ function openDaumPostcode() {
 		        </select>
 		    </div>
 		</div>
-		<div class="input-group">
-		<img src="${m.url }" width="100" height="100" >
-		
-		<input type="file" name="file">	
-		</div>
-			<div class="input-group">
-						<c:choose>
-			  <c:when test="${not empty m.url}">
-			    <c:out value="${m.url}" />
-			  </c:when>
-				  <c:otherwise>
-					    <!-- url이 null인 경우에 대한 처리 -->
-					    출력할 내용이 없음
-					  </c:otherwise>
-					</c:choose>
-			</div>
+
             
             <div class="input-group">
                 <input type="submit" value="정보수정" id="update_up"/>
