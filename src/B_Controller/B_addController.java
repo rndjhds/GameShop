@@ -37,6 +37,9 @@ public class B_addController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+	     response.setContentType("text/html; charset=UTF-8");
+	     response.setCharacterEncoding("UTF-8");
 		Service service = new ServiceImpl();
 		
 		B_Product p = new B_Product();
@@ -62,9 +65,9 @@ public class B_addController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		p.setUrl("GameShop_img"+img);
+		p.setUrl("/GameShop_img/"+img);
 		service.add(p);
-		response.sendRedirect("GameShop/B_board/B_list");
+		response.sendRedirect(request.getContextPath()+"/B_board/B_list");
 			
 	}
 

@@ -27,10 +27,8 @@ public class DBConnect {
 
 			// 데이터베이스 연결정보를 이용해 Connection 인스턴스 확보
 			conn = DriverManager.getConnection(jdbc_url, "Game_shop", "1234");
-			System.out.println("Connected to Database.");
 		} catch (Exception e) {
 			e.printStackTrace();
-            System.out.println("ERROR: Unable to Connect to Database.");
 		}
 		
 		return conn;

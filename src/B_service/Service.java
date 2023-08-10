@@ -18,4 +18,6 @@ public interface Service {
 	
 	ArrayList<B_Product> getB_ProductsAll();
 
+	void editImg(B_Product p);
+	
 }

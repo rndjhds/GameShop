@@ -8,7 +8,6 @@ public class Member {
 	private String birth;
 	private String tel;
 	private String address;
-	private String url;
 	private int type;
 
 	public Member() {
@@ -22,19 +21,6 @@ public class Member {
 		this.birth = birth;
 		this.tel = tel;
 		this.address = address;
-		this.type = type;
-	}
-	
-	public Member(String id, String password, String email, String birth, String tel, String address, String url,
-			int type) {
-		super();
-		this.id = id;
-		this.password = password;
-		this.email = email;
-		this.birth = birth;
-		this.tel = tel;
-		this.address = address;
-		this.url = url;
 		this.type = type;
 	}
 
@@ -86,14 +72,6 @@ public class Member {
 		this.address = address;
 	}
 
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
 	public int getType() {
 		return type;
 	}
@@ -105,15 +83,9 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", password=" + password + ", email=" + email + ", birth=" + birth + ", tel=" + tel
-				+ ", address=" + address + ", url=" + url + ", type=" + type + "]";
+				+ ", address=" + address + ", type=" + type + "]";
 	}
 
-	
-	
-	
-	
-	
-	
 	
 
 }

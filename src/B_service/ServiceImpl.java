@@ -22,7 +22,8 @@ public class ServiceImpl implements Service{
 
 	@Override
 	public void add(B_Product p) {
-		p.setSeq(selectGBoardSeq() );
+		p.setSeq(dao.selectGBoardSeq() );
+		System.out.println(	"seq :" + p.getSeq()) ;
 		// TODO Auto-generated method stub
 		dao.inset(p);
 		dao.insertImg(p);
@@ -51,5 +52,13 @@ public class ServiceImpl implements Service{
 		// TODO Auto-generated method stub
 		return dao.selectGBoardSeq();
 	}
+
+	@Override
+	public void editImg(B_Product p) {
+		// TODO Auto-generated method stub
+		dao.updateImg(p);
+	}
+
+
 
 }
