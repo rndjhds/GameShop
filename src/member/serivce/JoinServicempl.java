@@ -57,6 +57,14 @@ public class JoinServicempl implements JoinService{
 		dao.deleteImage(memberId);
 		
 	}
+
+
+	@Override
+	public String findids(String password) {
+		// TODO Auto-generated method stub
+		dao.findid(password);
+		return password;
+	}
 	
 	
 }
