@@ -35,6 +35,11 @@ public class ListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+		
+		
 		Service service = new ServiceImpl();
 		HttpSession session = request.getSession(false);
 		String s_id=(String)session.getAttribute("id");
@@ -43,6 +48,8 @@ public class ListController extends HttpServlet {
 		String path = "/G.view/seller/list.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
+		
+		
 		
 		
 	}
