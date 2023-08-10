@@ -90,16 +90,6 @@ body {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
-<<<<<<< HEAD
-
-<c:if test="${not empty m }">
-    <div class="main-container">
-        <h3>내정보 수정</h3>
-        <form action="${pageContext.request.contextPath }/EditController" method="post">
-            <div class="input-group">
-                <label for="id">아이디</label>
-                <input type="text" name="id" id="id" value="${m.id}" readonly/>
-=======
 <div class="container">
 <form method="post" action="${pageContext.request.contextPath }/EditController" enctype="multipart/form-data">
 <input type="hidden" name="profile" value="${m.url}">
@@ -112,7 +102,6 @@ body {
             <div class="user-avatar">
                <img src="${m.url }" alt="Maxwell Admin">
                <input type="file" class="form-control" id="file" name="file">
->>>>>>> G_Member
             </div>
             <h5 class="user-name">${m.id }</h5>
             <h6 class="user-email">${m.email }</h6>
@@ -175,34 +164,11 @@ body {
                <label for="">address</label>
                <input type="text" class="form-control" id="mem_addr1" value="${mem_addr1 }" name="mem_addr1">
             </div>
-<<<<<<< HEAD
-            
-		    <div class="input-group">
-		    <label for="email">이메일</label>
-		    <div style="display: flex;">
-		        <input type="text" name="email" id="email" value="${m.email }" style="flex: 1; max-width: 150px;" />
-		        <input type="text" name="mem_domain" id="mem_domain" style="max-width: 100px; margin-right: 5px;" />
-		        <select id="mail_list" onchange="domain_list()" style="max-width: 100px;">
-		            <option value="">직접입력</option>
-		            <option value="daum.net">daum.net</option>
-		            <option value="nate.com">nate.com</option>
-		            <option value="naver.com">naver.com</option>
-		            <option value="hotmail.com">hotmail.com</option>
-		            <option value="gmail.com">gmail.com</option>
-		        </select>
-		    </div>
-		</div>
-
-            
-            <div class="input-group">
-                <input type="submit" value="정보수정" id="update_up"/>
-=======
          </div>
          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
             <div class="form-group">
                <label for="sTate">detail address</label>
                <input type="text" class="form-control" id="mem_addr2" value="${mem_addr2 }" name="mem_addr2">
->>>>>>> G_Member
             </div>
          </div>
          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

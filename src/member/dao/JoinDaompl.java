@@ -57,6 +57,77 @@ public class JoinDaompl implements JoinDao{
 		
 	}
 
+	
+
+	@Override
+	public void join(Member m) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+
+		PreparedStatement pstmt = null;
+		
+		String sql = "SELECT * FROM G_member m JOIN G_img img ON m.Id = img.g_member_id";
+		
+		
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		
+	}
+		
+		
+	@Override
+	public void insertImg(Member m) {
+		// TODO Auto-generated method stub
+		
+			Connection conn = null;
+		
+		String sql = "insert into G_img(G_member_id, url) values(?, ?)";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, m.getId());
+			pstmt.setString(2, m.getUrl());
+			
+			
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		
+	}
 
 	
 	
@@ -66,9 +137,9 @@ public class JoinDaompl implements JoinDao{
 		Connection conn = null;
 		ResultSet rs = null;
 		Member m = null;
-		String sql = "select * from G_Member where id=?";
 		PreparedStatement pstmt = null;
 		
+		String sql = "select * from G_Member where id=?";
 		try {
 			// Ŀ�ؼ� ��ü ȹ��
 			conn = db.getConnection();
@@ -76,12 +147,11 @@ public class JoinDaompl implements JoinDao{
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				return new 
-			Member(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+			if (rs.next()) { 
+			m = new Member(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 					rs.getString(5),rs.getString(6),rs.getInt(7));
 			}
-
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -97,7 +167,7 @@ public class JoinDaompl implements JoinDao{
 			}
 
 		}
-		return null;
+		return m;
 	}
 
 	@Override
@@ -164,9 +234,68 @@ public class JoinDaompl implements JoinDao{
 		}
 		
 	}
-		
-		
-		
+
+
+	    @Override
+	    public String selectUrlById(String id) {
+	        Connection conn = null;
+	        ResultSet rs = null;
+	        String url = null;
+	        PreparedStatement pstmt = null;
+	        
+	        String sql = "SELECT url FROM G_img WHERE G_Member_id=?";
+	        try {
+	            conn = db.getConnection();
+	            pstmt = conn.prepareStatement(sql);
+	            pstmt.setString(1, id);
+	            rs = pstmt.executeQuery();
+	            if (rs.next()) {
+	                url = rs.getString("url");
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            try {
+	                rs.close();
+	                pstmt.close();
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        
+	        return url;
+	    }
+	    
+	    
+	    @Override
+	    public void deleteImage(String memberId) {
+	        Connection conn = null;
+	        PreparedStatement pstmt = null;
+	        String sql = "DELETE FROM G_Img WHERE G_Member_id = ?";
+
+	        try {
+	            conn = db.getConnection();
+	            pstmt = conn.prepareStatement(sql);
+	            pstmt.setString(1, memberId);
+	            pstmt.executeUpdate();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            try {
+	                if (pstmt != null) {
+	                    pstmt.close();
+	                }
+	                if (conn != null) {
+	                    conn.close();
+	                }
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+	    
+	    
 	}
 
 
