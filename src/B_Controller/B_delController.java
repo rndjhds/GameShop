@@ -33,6 +33,9 @@ public class B_delController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+	     response.setContentType("text/html; charset=UTF-8");
+	     response.setCharacterEncoding("UTF-8");
 		int num = Integer.parseInt(request.getParameter("num"));
 		Service service = new ServiceImpl();
 		B_Product p = service.getB_product(num);

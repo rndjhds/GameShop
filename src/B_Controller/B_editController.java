@@ -1,5 +1,6 @@
 package B_Controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
 
@@ -37,9 +38,12 @@ public class B_editController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+	     response.setContentType("text/html; charset=UTF-8");
+	     response.setCharacterEncoding("UTF-8");
 		Service service = new ServiceImpl();
-		B_Product p = new B_Product()	;
-		String path	= "";
+		B_Product p = new B_Product();
+		
 		String img = "";
 		
 		int maxSize = 1024*1024*10;
@@ -48,22 +52,27 @@ public class B_editController extends HttpServlet {
 		
 		try {
 			multi = new MultipartRequest(request,uploadPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
-			p.setTitle(request.getParameter("title"));
-			p.setCategory(Integer.parseInt(request.getParameter("category")));
-			p.setContent(request.getParameter("content"));
-			p.setUrl("GameShop_img" + img);
-			Enumeration files = multi.getFileNames()	;
-			String file1 = (String) files.nextElement();
-			img = multi.getFilesystemName(file1);
+			p.setSeq(Integer.parseInt(multi.getParameter("seq")));
+			p.setTitle(multi.getParameter("title"));
+			p.setCategory(Integer.parseInt(multi.getParameter("category")));
+			p.setContent(multi.getParameter("content"));
+			Enumeration files = multi.getFileNames();
+			
+			while(files.hasMoreElements()) {
+				String file1 = (String) files.nextElement();
+				img = multi.getFilesystemName(file1);
+				File file = multi.getFile(file1);
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		p.setUrl("/GameShop_img/" + img);
 		service.edit(p);
-		path = "/B_board/B_detail.jsp";
+		service.editImg(p);
+		String path = "/B_board/B_list";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);
-	}
-
+		}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

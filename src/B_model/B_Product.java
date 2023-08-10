@@ -2,16 +2,17 @@ package B_model;
 
 public class B_Product {
 	
-	int seq;
-	String title;
-	String content;
-	String register;
-	String reg_date;
-	String modifier;
-	String mod_date;
-	String delete_yn;
-	String url;
-	int category;
+	private int seq;
+	private int rowNum;
+	private String title;
+	private String content;
+	private String register;
+	private String reg_date;
+	private String modifier;
+	private String mod_date;
+	private String delete_yn;
+	private String url;
+	private int category;
 	
 public B_Product(int seq, String title, String content, String register, String reg_date) {
 		super();
@@ -47,6 +48,14 @@ public int getSeq() {
 
 public void setSeq(int seq) {
 	this.seq = seq;
+}
+
+public int getRowNum() {
+	return rowNum;
+}
+
+public void setRowNum(int rowNum) {
+	this.rowNum = rowNum;
 }
 
 public String getTitle() {

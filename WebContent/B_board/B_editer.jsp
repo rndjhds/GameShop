@@ -3,24 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
-function b() {
-	var flag = confirm("수정하시겠습니까??");
-	if(flag)	{
-		document.p.action = "${pageContext.request.contextPath}/B_board/B_detail?num=${p.seq}";
-		document.p.submit();
-	}else{
-		alert("수정을 취소하였습니다.");
-	}
-}
 
-
-</script>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
-<form name = "p" action="${pageContext.request.contextPath}/B_board/B_edit" method="post">
+<form name = "p" action="${pageContext.request.contextPath}/B_board/b_edit" method="post"
+enctype="multipart/form-data">
+<input type="hidden" name = "seq" value="${p.seq }">
 <table border = "1">
 <tr>
 <th>글번호</th>
@@ -55,8 +45,13 @@ function b() {
 <textarea rows="10" cols="30" name="content" value = "${p.content }"></textarea>
 </td>
 </tr>
+
+<tr>
+<th>이미지등록</th>
+<td><input type="file" name="file" value="${p.url }"><br></td>
+</tr>
 </table>
-<input type="button" value="등록" onclick="b()">
+<input type="submit" value="등록" onclick="b()">
 <input type="reset" value="취소" onclick = "history.back(-1)">
 
 </form>

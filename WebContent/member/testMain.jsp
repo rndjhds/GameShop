@@ -66,9 +66,9 @@
         </div>
         <h1>${sessionScope.id}님 메인 입장 성공</h1>
         <div class="main-content">
-
-        	
-        	
+            <a href="#">메뉴1</a>
+            <a href="#">메뉴2</a>
+            <a href="#">메뉴3</a>
             <!-- 메인 영역에 필요한 내용을 추가해주세요 -->
         </div>
     </div>

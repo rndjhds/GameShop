@@ -47,15 +47,12 @@ public class SearchController extends HttpServlet {
 
 		// 세션에 저장한 id 즉 로그인한 id를 읽는다.
 		String id = (String) session.getAttribute("id");
-		
+
 		// 로그인한 id로 멤버 정보 검색
 		Member m = service.getMember(id);
 		
-		String url = service.getUrl(id);
-		m.setUrl(url);
-		
 		request.setAttribute("m", m);
-		
+
 		// 정보 페이지로 이동
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/updateUser.jsp");
 		if (dispatcher != null) {
