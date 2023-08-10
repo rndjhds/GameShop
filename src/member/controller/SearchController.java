@@ -50,6 +50,10 @@ public class SearchController extends HttpServlet {
 		
 		// 로그인한 id로 멤버 정보 검색
 		Member m = service.getMember(id);
+		String[] address = m.getAddress().split("/");
+		request.setAttribute("mem_post", address[0]);
+		request.setAttribute("mem_addr1", address[1]);
+		request.setAttribute("mem_addr2", address[2]);
 		
 		String url = service.getUrl(id);
 		m.setUrl(url);

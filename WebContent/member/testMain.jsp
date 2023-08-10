@@ -66,8 +66,6 @@
         </div>
         <h1>${sessionScope.id}님 메인 입장 성공</h1>
         <div class="main-content">
-
-        	
         	
             <!-- 메인 영역에 필요한 내용을 추가해주세요 -->
         </div>
