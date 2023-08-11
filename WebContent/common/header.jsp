@@ -27,10 +27,10 @@
 					    </h3>
 					</li>
 					<li class="nav-item">
-						<h3><a class="nav-link" href="${pageContext.request.contextPath}/ListGoodsServlet">Shop</a></h3>
+						<h3><a class="nav-link" href="${pageContext.request.contextPath}/OrderList">Shop</a></h3>
 					</li>
 					<li class="nav-item">
-						<h3><a class="nav-link" href="${pageContext.request.contextPath}/ListGoodsServlet">MyList</a></h3>
+						<h3><a class="nav-link" href="${pageContext.request.contextPath}/ListController">MyList</a></h3>
 					</li>
 				</ul>	
 				<div class="col-md-3 text-end">
@@ -48,8 +48,7 @@
 	</main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> G_Member
+
+

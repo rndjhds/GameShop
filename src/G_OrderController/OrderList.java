@@ -1,7 +1,3 @@
-/ 
-// Decompiled by Procyon v0.5.36
-// 
-
 package G_OrderController;
 
 import java.io.IOException;
@@ -14,6 +10,7 @@ import javax.servlet.ServletRequest;
 import G.model.SellerMember;
 import G.OrderService.ServiceImpl;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,8 +26,25 @@ public class OrderList extends HttpServlet
         for (int i = 0; i < Goodss.size(); ++i) {
             System.out.println(Goodss.get(i).getSeq());
         }
+        
+        
+        Service service2 = new ServiceImpl();
+		HttpSession session = request.getSession(false);
+		String s_id=(String)session.getAttribute("id");
+        
+        
         request.setAttribute("Goodss", (Object)Goodss);
+        
+        
+        
+        
+        
+        
         final String path = "/G.view/order/list.jsp";
+        
+        
+        
+        
         final RequestDispatcher rd = request.getRequestDispatcher(path);
         rd.forward((ServletRequest)request, (ServletResponse)response);
     }

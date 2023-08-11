@@ -16,7 +16,7 @@ import G_SellerService.ServiceImpl;
 /**
  * Servlet implementation class DetailController
  */
-@WebServlet(name = "OrderDetailController", urlPatterns = { "/OrderDetailController" })
+@WebServlet(name = "OrderDetailController", urlPatterns = { "/order/detail" })
 public class DetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

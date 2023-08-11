@@ -92,7 +92,7 @@ public class GEditController extends HttpServlet {
 		
 
 		service.editGoods(g);
-		response.sendRedirect("/ListController");
+		response.sendRedirect(request.getContextPath()+"/ListController");
 	}
 
 	/**
