@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -37,15 +38,22 @@ public class B_addController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+	     response.setContentType("text/html; charset=UTF-8");
+	     response.setCharacterEncoding("UTF-8");
 		Service service = new ServiceImpl();
 		
 		B_Product p = new B_Product();
+		
+		HttpSession session = request.getSession(false);
+		String  register = (String)session.getAttribute("id");
+		p.setRegister(register);
 		
 		String img = "";
 		
 		int maxSize = 1024*1024*10;
 		MultipartRequest multi = null;
-		String uploadPath = "C:\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\GameShop_img";
+		String uploadPath = "C:\\Users\\simse\\OneDrive\\바탕 화면\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\GameShop_img";
 		
 		try {
 			multi = new MultipartRequest(request,uploadPath,maxSize,"utf-8",new DefaultFileRenamePolicy());
@@ -62,9 +70,9 @@ public class B_addController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		p.setUrl("GameShop_img"+img);
+		p.setUrl("/GameShop_img/"+img);
 		service.add(p);
-		response.sendRedirect("GameShop/B_board/B_list");
+		response.sendRedirect(request.getContextPath()+"/B_board/B_list");
 			
 	}
 

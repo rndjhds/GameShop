@@ -56,7 +56,7 @@ public class JoinController extends HttpServlet {
 		String img = "";
 		int maxSize =1024 *1024 *10;
 		MultipartRequest multi = null;
-		String uploadPath = "C:\\Users\\User\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\member_img";
+		String uploadPath = "C:\\Users\\simse\\OneDrive\\바탕 화면\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\member_img";
 		
 		
 		

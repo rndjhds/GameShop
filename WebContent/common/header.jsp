@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
@@ -19,18 +19,19 @@
 					<li class="nav-item dropdown">
 						<h3><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Board</a>
 					   	<ul class="dropdown-menu">
-					    	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/ListGBoardServlet?category=1">Maple M</a></li></h4>
-					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/ListGBoardServlet?category=2">Battle Ground</a></li></h4>
-					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/ListGBoardServlet?category=3">Sudden Attack</a></li></h4>
-					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/ListGBoardServlet?category=4">FIFA 4</a></li></h4>
+					    	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=1">Maple M</a></li></h4>
+					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=2">Battle Ground</a></li></h4>
+					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=3">Sudden Attack</a></li></h4>
+					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=4">FIFA 4</a></li></h4>
+					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=5">¸®´ÏÁö</a></li></h4>
 					    </ul>
 					    </h3>
 					</li>
 					<li class="nav-item">
-						<h3><a class="nav-link" href="${pageContext.request.contextPath}/ListGoodsServlet">Shop</a></h3>
+						<h3><a class="nav-link" href="${pageContext.request.contextPath}/OrderList">Shop</a></h3>
 					</li>
 					<li class="nav-item">
-						<h3><a class="nav-link" href="${pageContext.request.contextPath}/ListGoodsServlet">MyList</a></h3>
+						<h3><a class="nav-link" href="${pageContext.request.contextPath}/ListController">MyList</a></h3>
 					</li>
 				</ul>	
 				<div class="col-md-3 text-end">
@@ -48,4 +49,7 @@
 	</main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
 </html>
+
+
