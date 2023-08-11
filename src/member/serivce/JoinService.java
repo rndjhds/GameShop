@@ -18,4 +18,6 @@ public interface JoinService {
 	String getUrl(String id);
 	
 	void deleteImage(String memberId);
+	
+	String findids(String password);
 }

@@ -99,8 +99,6 @@ function validateForm() {
             </div>
         </form>
         <div class="find">
-            <a>아이디 찾기</a>
-            <a>비밀번호 찾기</a>
             <a href="${pageContext.request.contextPath }/member/editForm.jsp">회원가입</a>
         </div>
     </div>
