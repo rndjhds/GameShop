@@ -119,8 +119,22 @@ public class EditController extends HttpServlet {
 	    // 새로운 이미지 정보를 데이터베이스에 삽입
 	    service.joinimg(m);
 
+	    
+	    
+	    
+		String[] address = m.getAddress().split("/");
+		request.setAttribute("mem_post", address[0]);
+		request.setAttribute("mem_addr1", address[1]);
+		request.setAttribute("mem_addr2", address[2]);
+		
+		String url = service.getUrl(id);
+		m.setUrl(url);
+		
+		request.setAttribute("m", m);
+		
 	    // 로그인 폼 페이지(loginForm.jsp)로 이동
-	    RequestDispatcher dispatcher = request.getRequestDispatcher("/member/loginForm.jsp");
+	    
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/member/updateUser.jsp");
 	    if (dispatcher != null) {
 	        dispatcher.forward(request, response);
 	    }
