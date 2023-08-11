@@ -1,59 +1,103 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>ê²Œì‹œíŒ ë“±ë¡</title>
+    <style>
+        html {
+            padding-bottom: 80px;
+        }
 
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+        header > h1 {
+            font-size: 4rem;
+            text-align: center;
+            color: rgb(35, 160, 255);
+        }
+
+       .main {
+            border: 5px solid rgb(35, 160, 255);
+            border-radius: 60px;
+            width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding-bottom: 25px;
+            padding-left: 0%;
+        }
+
+        li {
+            padding-bottom: 25px;
+        }
+
+        .idpwd {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 25px;
+        }
+
+        .information {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        footer {
+            margin-top: 70px;
+        }
+    </style>
 </head>
 <body>
-<form name = "p" action="${pageContext.request.contextPath}/B_board/b_edit" method="post"
-enctype="multipart/form-data">
-<input type="hidden" name = "seq" value="${p.seq }">
-<table border = "1">
-<tr>
-<th>±Û¹øÈ£</th>
-<td>${p.seq }</td>
-</tr>
+<header>
+    <h1>Game_Shop</h1>
+</header>
 
-<tr>
-<th>±Û Á¦¸ñ</th>
-<td><input type="text" name="title" value="${p.title }"></td>
-</tr>
+<form method="post" action="${pageContext.request.contextPath}/B_board/b_edit" enctype="multipart/form-data" id="tab" name="tab" class="tab">
+    <main class="main">
+    <input type="hidden" name = "seq" value="${p.seq }">
+        <div>
+            <p>
+               <ul class="idpwd">
+                   <li>
+                        ê²Œì‹œíŒ ì œëª©<br><input type="text" name="title" id="title" style="width: 400px; height: 30px;" value="${p.title }">
+                   </li>
+               </ul>
+            </p>
+            <p>
+               <ul class="information">
+                   <li>
+                       ê²Œì‹œíŒ ì¹´í…Œê³ ë¦¬<br>
+                          <select name="category" id="category" style="width: 400px; height: 30px;" value = "${p.category }">
+                           <option value="1">ë©”ì´í”ŒM</option>
+                           <option value="2">ë°°ê·¸</option>
+                           <option value="3">ì„œë“ ì–´íƒ</option>
+                           <option value="4">í”¼íŒŒ4</option>
+                           <option value="5">ë¦¬ë‹ˆì§€</option>
+                          </select>
+                   </li>
+                   <li>
+                     ì—…ë¡œë“œ ì´ë¯¸ì§€<br><input type="file" name="file" value="${p.url } id=" imgstyle="width : 400px; height: 30px;" > 
+                  </li>
+                  <li>
+                         ê²Œì‹œíŒ ë‚´ìš©<br>
+                  <textarea name="content" rows="20" cols="60" value = "${p.content }"></textarea>
+                      </li>
+               </ul>
+            </p>
+        </div>
+    </main>
 
-<tr>
-<th>ÀÛ¼ºÀÚ</th>
-<td></td>
-</tr>
+    <input type="submit" name="button" value="ìˆ˜ì •"
+           style="width: 300px; height: 50px; background-color:rgb(35, 160, 255);
+                            color:white; font-size: 20px; border: 0px; margin-left: 41%; display:block;">
 
-<tr>
-<th>Ä«Å×°í¸®</th>
-<td>
-<select name="category" value = "${p.category }">
-<option value="1">¸ŞÀÌÇÃ1</option>
-<option value="2">¸ŞÀÌÇÃ2</option>
-<option value="3">¸ŞÀÌÇÃ3</option>
-<option value="4">¸ŞÀÌÇÃ4</option>
-</select>
-</td>
-</tr>
-
-<tr>
-<th>±Û ³»¿ë</th>
-<td>
-<textarea rows="10" cols="30" name="content" value = "${p.content }"></textarea>
-</td>
-</tr>
-
-<tr>
-<th>ÀÌ¹ÌÁöµî·Ï</th>
-<td><input type="file" name="file" value="${p.url }"><br></td>
-</tr>
-</table>
-<input type="submit" value="µî·Ï" onclick="b()">
-<input type="reset" value="Ãë¼Ò" onclick = "history.back(-1)">
 
 </form>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>

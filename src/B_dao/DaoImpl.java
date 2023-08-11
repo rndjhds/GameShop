@@ -58,7 +58,7 @@ public class DaoImpl implements DAO{
 	public void inset(B_Product p) {
 		// TODO Auto-generated method stub
 		Connection conn = db.getConnection();
-		String sql = "insert into G_Board(seq,title,content,register,category) values(?,?,?,'Max',?)";
+		String sql = "insert into G_Board(seq,title,content,register,category) values(?,?,?,?,?)";
 		PreparedStatement pstmt = null;
 		
 		try {
@@ -66,7 +66,8 @@ public class DaoImpl implements DAO{
 			pstmt.setInt(1, p.getSeq());
 			pstmt.setString(2, p.getTitle());
 			pstmt.setString(3, p.getContent());
-			pstmt.setInt(4, p.getCategory());
+			pstmt.setString(4, p.getRegister());
+			pstmt.setInt(5, p.getCategory());
 			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

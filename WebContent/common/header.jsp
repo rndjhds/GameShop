@@ -19,10 +19,11 @@
 					<li class="nav-item dropdown">
 						<h3><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Board</a>
 					   	<ul class="dropdown-menu">
-					    	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/ListGBoardServlet?category=1">Maple M</a></li></h4>
-					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/ListGBoardServlet?category=2">Battle Ground</a></li></h4>
-					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/ListGBoardServlet?category=3">Sudden Attack</a></li></h4>
-					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/ListGBoardServlet?category=4">FIFA 4</a></li></h4>
+					    	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=1">Maple M</a></li></h4>
+					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=2">Battle Ground</a></li></h4>
+					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=3">Sudden Attack</a></li></h4>
+					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=4">FIFA 4</a></li></h4>
+					      	<h4><li><a class="dropdown-item" href="${pageContext.request.contextPath }/B_board/B_list?category=5">리니지</a></li></h4>
 					    </ul>
 					    </h3>
 					</li>

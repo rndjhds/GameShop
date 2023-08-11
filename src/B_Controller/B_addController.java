@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -43,6 +44,10 @@ public class B_addController extends HttpServlet {
 		Service service = new ServiceImpl();
 		
 		B_Product p = new B_Product();
+		
+		HttpSession session = request.getSession(false);
+		String  register = (String)session.getAttribute("id");
+		p.setRegister(register);
 		
 		String img = "";
 		

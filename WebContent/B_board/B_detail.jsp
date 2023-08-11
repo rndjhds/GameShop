@@ -421,6 +421,7 @@ img {
 }
 
 
+
 </style>
 <script type="text/javascript">
 function a() {
@@ -441,7 +442,6 @@ function a() {
             <div class="col-lg-8 m-15px-tb">
                 <article class="article">
                     <div class="contact-form article-comment">
-                        <h4>글 정보</h4>
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
@@ -454,7 +454,7 @@ function a() {
                                 </tr>
                                 <tr>
                                     <th>작성자</th>
-                                    <td>max</td>
+                                    <td>${p.register }</td>
                                 </tr>
                                 <tr>
                                     <th>카테고리</th>
@@ -480,7 +480,7 @@ function a() {
  <form name = "p" action="${pageContext.request.contextPath }/B_board/B_search" method="post">
 	<input type="hidden" name="num" value="${p.seq }"> 
 	<input type="submit" value="수정">
-	<input type="reset" value="삭제" onclick="a()">
+	<input type="reset"  value="삭제" onclick="a()">
 </form>     
 </body>
 </html>

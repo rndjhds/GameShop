@@ -15,7 +15,7 @@
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 					<div class="col">
 						<div class="card shadow-sm">
-							<a href="#"><img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${pageContext.request.contextPath}/img/KakaoTalk_20230808_164017784.jpg"></a>
+							<a href="${pageContext.request.contextPath }/B_board/B_list"><img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${pageContext.request.contextPath}/img/KakaoTalk_20230808_164017784.jpg"></a>
 							<div class="card-body">
 								<p class="card-text" style="direction: ltr; text-align: left;">이것은 추가 콘텐츠에 대한 자연스러운 소개로 아래에 지원 텍스트가 있는 더 넓은 카드입니다. 이 내용은 조금 더 깁니다.</p>
 								<div class="d-flex justify-content-between align-items-center">

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -43,7 +44,9 @@ public class B_editController extends HttpServlet {
 	     response.setCharacterEncoding("UTF-8");
 		Service service = new ServiceImpl();
 		B_Product p = new B_Product();
-		
+		HttpSession session = request.getSession(false);
+		String  modifier = (String)session.getAttribute("id");
+		p.setModifier(modifier);
 		String img = "";
 		
 		int maxSize = 1024*1024*10;
