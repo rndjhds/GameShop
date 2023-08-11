@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+pageEncoding="EUC-KR"%>
 <%@include file="/common/header.jsp" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>게시판 등록</title>
+    <meta charset="EUC-KR">
+    <title>�Խ��� ���</title>
     <style>
         html {
             padding-bottom: 80px;
@@ -58,32 +58,26 @@ pageEncoding="UTF-8"%>
     <h1>Game_Shop</h1>
 </header>
 
-<form method="post" action="${pageContext.request.contextPath}/AddGBoardServlet" enctype="multipart/form-data" id="tab" name="tab" class="tab">
+<form method="post" action="${pageContext.request.contextPath}/AddController" enctype="multipart/form-data" id="tab" name="tab" class="tab">
     <main class="main">
         <div>
             <p>
                <ul class="idpwd">
                    <li>
-                        게시판 제목<br><input type="text" name="title" id="title" style="width: 400px; height: 30px;">
+                        ��ǰ��<br><input type="text" name="name" id="name" style="width: 400px; height: 30px;">
                    </li>
                </ul>
             </p>
             <p>
                <ul class="information">
                    <li>
-                       게시판 카테고리<br>
-                          <select name="category" id="category" style="width: 400px; height: 30px;">
-                           <option value="1">메이플M</option>
-                           <option value="2">배그</option>
-                           <option value="3">서든어택</option>
-                           <option value="4">피파4</option>
-                          </select>
-                   </li>
-                   <li>
-                     업로드 이미지<br><input type="file" name="img" id="img" style="width : 400px; height: 30px;"> 
+                     ���ε� �̹���<br><input type="file" name="img" id="img" style="width : 400px; height: 30px;"> 
                   </li>
                   <li>
-                         게시판 내용<br>
+                  	  ����<br><input type="number" name="price" id="price" style="width : 400px; height: 30px;">
+                  </li>
+                  <li>
+                         ��ǰ ����<br>
                   <textarea name="content" rows="20" cols="60"></textarea>
                       </li>
                </ul>
@@ -91,7 +85,7 @@ pageEncoding="UTF-8"%>
         </div>
     </main>
 
-    <input type="submit" name="button" value="등록하기"
+    <input type="submit" name="button" value="����ϱ�"
            style="width: 300px; height: 50px; background-color:rgb(35, 160, 255);
                             color:white; font-size: 20px; border: 0px; margin-left: 41%; display:block;">
 

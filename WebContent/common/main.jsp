@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@include file="/common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
@@ -17,7 +17,7 @@
 						<div class="card shadow-sm">
 							<a href="${pageContext.request.contextPath }/B_board/B_list"><img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${pageContext.request.contextPath}/img/KakaoTalk_20230808_164017784.jpg"></a>
 							<div class="card-body">
-								<p class="card-text" style="direction: ltr; text-align: left;">ì´ê²ƒì€ ì¶”ê°€ ì½˜í…ì¸ ì— ëŒ€í•œ ìžì—°ìŠ¤ëŸ¬ìš´ ì†Œê°œë¡œ ì•„ëž˜ì— ì§€ì› í…ìŠ¤íŠ¸ê°€ ìžˆëŠ” ë” ë„“ì€ ì¹´ë“œìž…ë‹ˆë‹¤. ì´ ë‚´ìš©ì€ ì¡°ê¸ˆ ë” ê¹ë‹ˆë‹¤.</p>
+								<p class="card-text" style="direction: ltr; text-align: left;">ÀÌ°ÍÀº Ãß°¡ ÄÜÅÙÃ÷¿¡ ´ëÇÑ ÀÚ¿¬½º·¯¿î ¼Ò°³·Î ¾Æ·¡¿¡ Áö¿ø ÅØ½ºÆ®°¡ ÀÖ´Â ´õ ³ÐÀº Ä«µåÀÔ´Ï´Ù. ÀÌ ³»¿ëÀº Á¶±Ý ´õ ±é´Ï´Ù.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 									</div>
@@ -29,7 +29,7 @@
 						<div class="card shadow-sm">
 							<a href="#"><img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${pageContext.request.contextPath}/img/KakaoTalk_20230808_164017784_02.jpg"></a>
 							<div class="card-body">
-								<p class="card-text" style="direction: ltr; text-align: left;">ì´ê²ƒì€ ì¶”ê°€ ì½˜í…ì¸ ì— ëŒ€í•œ ìžì—°ìŠ¤ëŸ¬ìš´ ì†Œê°œë¡œ ì•„ëž˜ì— ì§€ì› í…ìŠ¤íŠ¸ê°€ ìžˆëŠ” ë” ë„“ì€ ì¹´ë“œìž…ë‹ˆë‹¤. ì´ ë‚´ìš©ì€ ì¡°ê¸ˆ ë” ê¹ë‹ˆë‹¤.</p>
+								<p class="card-text" style="direction: ltr; text-align: left;">ÀÌ°ÍÀº Ãß°¡ ÄÜÅÙÃ÷¿¡ ´ëÇÑ ÀÚ¿¬½º·¯¿î ¼Ò°³·Î ¾Æ·¡¿¡ Áö¿ø ÅØ½ºÆ®°¡ ÀÖ´Â ´õ ³ÐÀº Ä«µåÀÔ´Ï´Ù. ÀÌ ³»¿ëÀº Á¶±Ý ´õ ±é´Ï´Ù.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 									</div>
@@ -41,7 +41,7 @@
 						<div class="card shadow-sm">
 							<a href="#"><img class="bd-placeholder-img card-img-top" width="100%" height="225" src="${pageContext.request.contextPath}/img/KakaoTalk_20230808_164017784_01.jpg"></a>
 							<div class="card-body">
-								<p class="card-text" style="direction: ltr; text-align: left;">ì´ê²ƒì€ ì¶”ê°€ ì½˜í…ì¸ ì— ëŒ€í•œ ìžì—°ìŠ¤ëŸ¬ìš´ ì†Œê°œë¡œ ì•„ëž˜ì— ì§€ì› í…ìŠ¤íŠ¸ê°€ ìžˆëŠ” ë” ë„“ì€ ì¹´ë“œìž…ë‹ˆë‹¤. ì´ ë‚´ìš©ì€ ì¡°ê¸ˆ ë” ê¹ë‹ˆë‹¤.</p>
+								<p class="card-text" style="direction: ltr; text-align: left;">ÀÌ°ÍÀº Ãß°¡ ÄÜÅÙÃ÷¿¡ ´ëÇÑ ÀÚ¿¬½º·¯¿î ¼Ò°³·Î ¾Æ·¡¿¡ Áö¿ø ÅØ½ºÆ®°¡ ÀÖ´Â ´õ ³ÐÀº Ä«µåÀÔ´Ï´Ù. ÀÌ ³»¿ëÀº Á¶±Ý ´õ ±é´Ï´Ù.</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 									</div>

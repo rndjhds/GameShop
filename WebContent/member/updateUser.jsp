@@ -1,20 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="member.model.Member"%>
+<%@include file="/common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script>
-        //ìš°í¸ë²ˆí˜¸, ì£¼ì†Œ Daum API
+        //¿ìÆí¹øÈ£, ÁÖ¼Ò Daum API
         function openDaumPostcode() {
             new daum.Postcode({
                 oncomplete: function (data) {
-                    // íŒì—…ì—ì„œ ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì„ í´ë¦­í–ˆì„ë•Œ ì‹¤í–‰í•  ì½”ë“œë¥¼ ì‘ì„±í•˜ëŠ” ë¶€ë¶„.
-                    // ìš°í¸ë²ˆí˜¸ì™€ ì£¼ì†Œ ì •ë³´ë¥¼ í•´ë‹¹ í•„ë“œì— ë„£ê³ , ì»¤ì„œë¥¼ ìƒì„¸ì£¼ì†Œ í•„ë“œë¡œ ì´ë™í•œë‹¤.
+                    // ÆË¾÷¿¡¼­ °Ë»ö°á°ú Ç×¸ñÀ» Å¬¸¯ÇßÀ»¶§ ½ÇÇàÇÒ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ºÎºĞ.
+                    // ¿ìÆí¹øÈ£¿Í ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö°í, Ä¿¼­¸¦ »ó¼¼ÁÖ¼Ò ÇÊµå·Î ÀÌµ¿ÇÑ´Ù.
                     document.getElementById('mem_post').value = data.zonecode;
                     document.getElementById('mem_addr1').value = data.address;
                 }
@@ -156,7 +157,7 @@ body {
             <div class="form-group">
                <label for="Street">Street</label>
                <input type="text" class="form-control" id="mem_post" value="${mem_post }" name="mem_post">
-               <button type="button" class="btn btn-secondary" value="ì£¼ì†Œ ê²€ìƒ‰" onClick="openDaumPostcode()">ì£¼ì†Œ ê²€ìƒ‰</button>
+               <button type="button" class="btn btn-secondary" value="ÁÖ¼Ò °Ë»ö" onClick="openDaumPostcode()">ÁÖ¼Ò °Ë»ö</button>
             </div>
          </div>
          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -173,10 +174,10 @@ body {
          </div>
          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
             <div class="form-group">
-               <label for="sTate">ìœ í˜•</label>
+               <label for="sTate">À¯Çü</label>
                <select name="type" class="form-control">
-                  <option value="1" <c:if test = "${m.type eq 1}">selected = "selected"</c:if>>êµ¬ë§¤ì</option>
-                  <option value="2" <c:if test = "${m.type eq 2}">selected = "selected"</c:if>>íŒë§¤ì</option>
+                  <option value="1" <c:if test = "${m.type eq 1}">selected = "selected"</c:if>>±¸¸ÅÀÚ</option>
+                  <option value="2" <c:if test = "${m.type eq 2}">selected = "selected"</c:if>>ÆÇ¸ÅÀÚ</option>
                </select>
             </div>
          </div>
@@ -184,9 +185,9 @@ body {
       <div class="row gutters">
          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="text-right">
-               <button type="button" id="submit" name="submit" class="btn btn-secondary" onclick="history.go(-1)">ì·¨ì†Œ</button>
-               <button type="submit" id="submit" name="submit" class="btn btn-primary">ìˆ˜ì •</button>
-               <button type="button" id="submit" name="submit" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/DelController'" >íšŒì›íƒˆí‡´</button>
+               <button type="button" id="submit" name="submit" class="btn btn-secondary" onclick="history.go(-1)">Ãë¼Ò</button>
+               <button type="submit" id="submit" name="submit" class="btn btn-primary">¼öÁ¤</button>
+               <button type="button" id="submit" name="submit" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/DelController'" >È¸¿øÅ»Åğ</button>
             </div>
          </div>
       </div>
@@ -199,6 +200,6 @@ body {
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
-
+<%@include file="/common/footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>

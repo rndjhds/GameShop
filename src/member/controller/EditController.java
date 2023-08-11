@@ -67,7 +67,7 @@ public class EditController extends HttpServlet {
 	    if (imageUrl != null) {
 	        String[] arr = imageUrl.split("/");
 	        String fname = arr[arr.length - 1];
-	        String uploadPath = "C:\\Users\\User\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\member_img";
+			String uploadPath = "C:\\Users\\simse\\OneDrive\\바탕 화면\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\member_img";
 	        File f = new File(uploadPath + fname);
 	        f.delete();
 	    }
@@ -76,7 +76,7 @@ public class EditController extends HttpServlet {
 	    String img = "";
 	    int maxSize = 1024 * 1024 * 10;
 	    MultipartRequest multi = null;
-	    String uploadPath = "C:\\Users\\User\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\member_img";
+		String uploadPath = "C:\\Users\\simse\\OneDrive\\바탕 화면\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\member_img";
 
 	    try {
 	        // 요청을 파싱하여 새로운 이미지 데이터를 가져옴

@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="/common/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -36,14 +37,14 @@ body{
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive project-list">
-                    <a href="${pageContext.request.contextPath }/B_board/B_addForm.jsp">Í∏ÄÏì∞Í∏∞</a>
+                    <a href="${pageContext.request.contextPath }/B_board/B_addForm.jsp">±€æ≤±‚</a>
                         <table class="table project-table table-centered table-nowrap">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Ï†úÎ™©</th>
-                                    <th scope="col">ÎÇ¥Ïö©</th>
-                                    <th scope="col">ÏûëÏÑ±Ïùº</th>
+                                    <th scope="col">¡¶∏Ò</th>
+                                    <th scope="col">≥ªøÎ</th>
+                                    <th scope="col">¿€º∫¿œ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,7 @@ body{
     </div>
 </div>
 </body>
+<%@include file="/common/footer.jsp" %>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

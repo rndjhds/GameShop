@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+pageEncoding="EUC-KR"%>
+<%@include file="/common/header.jsp" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>ê²Œì‹œíŒ ë“±ë¡</title>
+    <meta charset="EUC-KR">
+    <title>°Ô½ÃÆÇ µî·Ï</title>
     <style>
         html {
             padding-bottom: 80px;
@@ -64,27 +65,27 @@ pageEncoding="UTF-8"%>
             <p>
                <ul class="idpwd">
                    <li>
-                        ê²Œì‹œíŒ ì œëª©<br><input type="text" name="title" id="title" style="width: 400px; height: 30px;" value="${p.title }">
+                        °Ô½ÃÆÇ Á¦¸ñ<br><input type="text" name="title" id="title" style="width: 400px; height: 30px;" value="${p.title }">
                    </li>
                </ul>
             </p>
             <p>
                <ul class="information">
                    <li>
-                       ê²Œì‹œíŒ ì¹´í…Œê³ ë¦¬<br>
+                       °Ô½ÃÆÇ Ä«Å×°í¸®<br>
                           <select name="category" id="category" style="width: 400px; height: 30px;" value = "${p.category }">
-                           <option value="1">ë©”ì´í”ŒM</option>
-                           <option value="2">ë°°ê·¸</option>
-                           <option value="3">ì„œë“ ì–´íƒ</option>
-                           <option value="4">í”¼íŒŒ4</option>
-                           <option value="5">ë¦¬ë‹ˆì§€</option>
+                           <option value="1">¸ÞÀÌÇÃM</option>
+                           <option value="2">¹è±×</option>
+                           <option value="3">¼­µç¾îÅÃ</option>
+                           <option value="4">ÇÇÆÄ4</option>
+                           <option value="5">¸®´ÏÁö</option>
                           </select>
                    </li>
                    <li>
-                     ì—…ë¡œë“œ ì´ë¯¸ì§€<br><input type="file" name="file" value="${p.url } id=" imgstyle="width : 400px; height: 30px;" > 
+                     ¾÷·Îµå ÀÌ¹ÌÁö<br><input type="file" name="file" value="${p.url } id=" imgstyle="width : 400px; height: 30px;" > 
                   </li>
                   <li>
-                         ê²Œì‹œíŒ ë‚´ìš©<br>
+                         °Ô½ÃÆÇ ³»¿ë<br>
                   <textarea name="content" rows="20" cols="60" value = "${p.content }"></textarea>
                       </li>
                </ul>
@@ -92,12 +93,13 @@ pageEncoding="UTF-8"%>
         </div>
     </main>
 
-    <input type="submit" name="button" value="ìˆ˜ì •"
+    <input type="submit" name="button" value="¼öÁ¤"
            style="width: 300px; height: 50px; background-color:rgb(35, 160, 255);
                             color:white; font-size: 20px; border: 0px; margin-left: 41%; display:block;">
 
 
 </form>
 </body>
+<%@include file="/common/footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>

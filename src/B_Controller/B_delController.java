@@ -39,7 +39,7 @@ public class B_delController extends HttpServlet {
 		int num = Integer.parseInt(request.getParameter("num"));
 		Service service = new ServiceImpl();
 		B_Product p = service.getB_product(num);
-		String uploadPath = "C:\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\GameShop_img";
+		String uploadPath = "C:\\Users\\simse\\OneDrive\\바탕 화면\\Web\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\webapps\\GameShop_img";
 		String[] arr = p.getUrl().split("/");
 		String fname = arr[arr.length-1];
 		File f = new File(uploadPath+fname);

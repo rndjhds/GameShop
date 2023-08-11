@@ -1,18 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@include file="/common/header.jsp" %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script type="text/javascript">
 </script>
 <style>
@@ -425,12 +424,12 @@ img {
 </style>
 <script type="text/javascript">
 function a() {
-    var flag = confirm("ì •ë§ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ??")
+    var flag = confirm("Á¤¸» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î??")
     if(flag){
        document.p.action = "${pageContext.request.contextPath}/B_board/B_del?num=${p.seq}";
        document.p.submit();
     }else{
-       alert("ì‚­ì œê°€ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+       alert("»èÁ¦°¡ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
     }
  }
 </script>
@@ -445,27 +444,27 @@ function a() {
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
-                                    <th>ê¸€ ë²ˆí˜¸</th>
+                                    <th>±Û ¹øÈ£</th>
                                     <td>${p.seq}</td>
                                 </tr>
                                 <tr>
-                                    <th>ê¸€ ì œëª©</th>
+                                    <th>±Û Á¦¸ñ</th>
                                     <td>${p.title}</td>
                                 </tr>
                                 <tr>
-                                    <th>ì‘ì„±ì</th>
+                                    <th>ÀÛ¼ºÀÚ</th>
                                     <td>${p.register }</td>
                                 </tr>
                                 <tr>
-                                    <th>ì¹´í…Œê³ ë¦¬</th>
+                                    <th>Ä«Å×°í¸®</th>
                                     <td>${p.category}</td>
                                 </tr>
                                 <tr>
-                                    <th>ê¸€ ë‚´ìš©</th>
+                                    <th>±Û ³»¿ë</th>
                                     <td>${p.content}</td>
                                 </tr>
                                 <tr>
-                                    <th>ì´ë¯¸ì§€</th>
+                                    <th>ÀÌ¹ÌÁö</th>
                                     <td>
                                         <img src="${p.url}" width="200" height="200"/>
                                     </td>
@@ -479,8 +478,10 @@ function a() {
                 </article>
  <form name = "p" action="${pageContext.request.contextPath }/B_board/B_search" method="post">
 	<input type="hidden" name="num" value="${p.seq }"> 
-	<input type="submit" value="ìˆ˜ì •">
-	<input type="reset"  value="ì‚­ì œ" onclick="a()">
+	<input type="submit" value="¼öÁ¤">
+	<input type="reset"  value="»èÁ¦" onclick="a()">
 </form>     
 </body>
+<%@include file="/common/footer.jsp" %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </html>

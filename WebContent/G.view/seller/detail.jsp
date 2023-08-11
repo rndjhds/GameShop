@@ -1,23 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+pageEncoding="EUC-KR"%>
 <%@include file="/common/header.jsp" %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>ê²Œì‹œíŒ ë“±ë¡</title>]<script type="text/javascript" content="text/html"; charset=EUC-KR>
-	function del(){
-		var flag = confirm("ì •ë§ ì‚­ì œí•˜ê² ìŠµë‹ˆê¹Œ")
-		if(flag){
-			document.f.action="${pageContext.request.contextPath}/seller/Del?seq=${g.seq}";
-			document.f.submit();
-		}else{
-			alert("ì‚­ì œê°€ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+    <meta charset="EUC-KR">
+    <title>»óÇ° ¼öÁ¤</title>
+    <script type="text/javascript">
+	    function del(){
+			var flag = confirm("Á¤¸» »èÁ¦ÇÏ°Ú½À´Ï±î")
+			if(flag){
+				document.f.action="${pageContext.request.contextPath}/seller/Del?seq=${g.seq}";
+				document.f.submit();
+			}else{
+				alert("»èÁ¦°¡ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+			}
 		}
-	}
-</script>
-    
+	</script>
     <style>
         html {
             padding-bottom: 80px;
@@ -66,64 +66,57 @@ pageEncoding="UTF-8"%>
 </head>
 <body>
 <header>
-    <h1>My List</h1>
+    <h1>Game_Shop</h1>
 </header>
 
-<form name="f" action="${pageContext.request.contextPath }/seller/Edit" method="post" enctype="multipart/form-data">	
-	<main class="main">
-	<table border="1">
-		<tr>
-		
-		<ul class="idpwd">
-		
-		<ul class="information"></ul>
-			<th>ìƒí’ˆë²ˆí˜¸</th>
-			<td><input type="text" value="${g.seq }" name="seq" readonly></td>
-		</tr>
-		<tr>
-			<th>ìƒí’ˆëª…</th>
-			<td><input type="text" value="${g.product_name }" name="product_name"></td>
-		</tr>
-		<tr>
-			<th>ìƒí’ˆë‚´ìš©</th>
-			<td>
-				<textarea name="content" rows="5" cols="2" style="width: 165px; height: 76px;" >${g.content } </textarea>
-			</td>
-		</tr>
-		<tr>
-			<th>ì‘ì„±ì</th>
-			<td><input type="text" value="${g.register }" name="register" readonly></td>
-		</tr>
-		<tr>
-			<th>ê°€ê²©</th>
-			<td><input type="text" value="${g.price }" name="price"></td>
-		</tr>
-		<tr>
-			<th>ìƒí’ˆ ì´ë¯¸ì§€</th>
-			<td>${g.img }<br><img src="${
-			g.img }" width="300" height="300"/></td>
-			<td><input type="file" name="file"></td>
-		</tr>
-		<tr>
-			
-		</tr>
-	</table>
-	<table border="1"> 
-	<tr>
-	<td>
-	 <input type="submit" name="button" value="ìˆ˜ì •í•˜ê¸°"
-           style="width: 200px; height: 50px; background-color:rgb(35, 160, 255);
+<form method="post" action="${pageContext.request.contextPath}/seller/Edit" enctype="multipart/form-data" id="f" name="f" class="tab">
+    <main class="main">
+        <div>
+            <p>
+               <ul class="idpwd">
+                   <li>
+                        »óÇ°¹øÈ£<br><input type="text" name="seq" id="seq" style="width: 400px; height: 30px;" value="${g.seq }" readonly>
+                   </li>
+                   <li>
+                        »óÇ°¸í<br><input type="text" name="product_name" id="product_name" style="width: 400px; height: 30px;" value="${g.product_name }">
+                   </li>
+               </ul>
+            </p>
+            <p>
+               <ul class="information">
+                   <li>
+                       »óÇ°³»¿ë<br>
+                          <textarea name="content" rows="20" cols="50" >${g.content } </textarea>
+                   </li>
+                   <li>
+                    	ÀÛ¼ºÀÚ<br>
+                    	<input type="text" name="register" id="register" style="width : 400px; height: 30px;" value="${g.register }"> 
+                  </li>
+                  <li>
+                        °¡°İ<br>
+                  		<input type="text" name="price" id="price" style="width : 400px; height: 30px;" value="${g.price }"> 
+                  </li>
+                  <li>
+                  	»óÇ° ÀÌ¹ÌÁö<br>
+                  	<img src="${g.img }" width="300" height="300"/>
+                  </li>
+                  <li>
+                  	¼öÁ¤ ÀÌ¹ÌÁö<br>
+                  	<input type="file" name="file">
+                  </li>
+               </ul>
+            </p>
+        </div>
+    </main>
+
+    <input type="submit" name="button" value="¼öÁ¤ÇÏ±â"
+           style="width: 300px; height: 50px; background-color:rgb(35, 160, 255);
                             color:white; font-size: 20px; border: 0px; margin-left: 41%; display:block;">
-      </td>  
-      <td>                    
-     <input type="button" name="button" value="ì‚­ì œí•˜ê¸°"
-           style="width: 200px; height: 50px; background-color:rgb(35, 160, 255);
+
+	 <input type="button" name="button" value="»èÁ¦ÇÏ±â"
+           style="width: 300px; height: 50px; background-color:rgb(35, 160, 255);
                             color:white; font-size: 20px; border: 0px; margin-left: 41%; display:block;" onclick="del()" >
-	</td>	
-	</tr>
-	</table>
-	
-	</form>
+</form>
 </body>
 <%@include file="/common/footer.jsp" %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

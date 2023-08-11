@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@include file="/common/header.jsp" %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
 <head>
@@ -190,10 +192,10 @@ background:#eee;
                  ${g.content }
               </p>
            
-              <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">${price }</span></div>
+              <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">${g.price }</span></div>
               <div class="form-group">
-                  <label>Quantity</label>
-                  <input type="quantiy" placeholder="1" class="form-control quantity"> <span class = "amount-old">${quantiy }</span></div>
+                  <label>ÆÇ¸ÅÀÚ</label>
+                  <span class = "amount-old">${g.register }</span></div>
               </div>
               <p>
                   <button class="btn btn-round btn-danger" type="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
@@ -204,5 +206,7 @@ background:#eee;
   </div>
   </div>
 </body>
+<%@include file="/common/footer.jsp" %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </html>
