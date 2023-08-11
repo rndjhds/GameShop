@@ -35,12 +35,12 @@
 				</ul>	
 				<div class="col-md-3 text-end">
 				<c:if test="${sessionScope.id eq null }">
-					<button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${pageContext.request.contextPath}/LoginFormServlet'">Login</button>
-					<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/JoinFormServlet'">Sign-up</button>
+					<button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${pageContext.request.contextPath}/LoginController'">Login</button>
+					<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/JoinController'">Sign-up</button>
 				</c:if>
 				<c:if test="${sessionScope.id ne null }">
-					<button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${pageContext.request.contextPath}/ProfileServlet'">Profile</button>
-					<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/LogoutServlet'">Logout</button>
+					<button type="button" class="btn btn-outline-primary me-2" onclick="location.href='${pageContext.request.contextPath}/SearchController'">Profile</button>
+					<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/LogoutController'">Logout</button>
 				</c:if>
 				</div>				
 			</header>
@@ -48,4 +48,8 @@
 	</main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> G_Member

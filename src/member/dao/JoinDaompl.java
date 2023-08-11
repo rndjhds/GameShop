@@ -294,6 +294,38 @@ public class JoinDaompl implements JoinDao{
 	            }
 	        }
 	    }
+
+
+		@Override
+		public void findid(String password) {
+			// TODO Auto-generated method stub
+			Connection conn = null;
+		    ResultSet rs = null;
+		    String id = null; // 결과로 찾은 아이디를 저장할 변수
+		    PreparedStatement pstmt = null;
+
+		    String sql = "SELECT id FROM G_Member WHERE password=?";
+		    try {
+		        conn = db.getConnection();
+		        pstmt = conn.prepareStatement(sql);
+		        pstmt.setString(1, password); // 매개변수로 받은 password를 설정
+		        rs = pstmt.executeQuery();
+		        if (rs.next()) {
+		            id = rs.getString("id"); // 결과에서 id 값을 가져옴
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (pstmt != null) pstmt.close();
+		            if (conn != null) conn.close();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+
+		}
 	    
 	    
 	}

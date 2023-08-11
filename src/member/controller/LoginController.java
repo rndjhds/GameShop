@@ -49,7 +49,7 @@ public class LoginController extends HttpServlet {
 	        
 	        String id = request.getParameter("id");
 	        String password = request.getParameter("password");
-	        
+
 	        Member m = service.getMember(id);
 
 	        // 로그인 성공 여부를 확인하기 위한 변수
@@ -77,7 +77,7 @@ public class LoginController extends HttpServlet {
 
 	        if (loginSuccess) {
 	            // 로그인 성공 시 메인 페이지로 이동
-	            RequestDispatcher dispatcher = request.getRequestDispatcher("/member/testMain.jsp");
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("/common/main.jsp");
 	            if (dispatcher != null) {
 	                dispatcher.forward(request, response);
 	            }

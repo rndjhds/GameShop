@@ -20,4 +20,6 @@ public interface JoinDao {
 	
 	void deleteImage(String memberId);
 	
+	void findid(String password);
+	
 }

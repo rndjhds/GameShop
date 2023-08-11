@@ -184,8 +184,9 @@ body {
       <div class="row gutters">
          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="text-right">
-               <button type="button" id="submit" name="submit" class="btn btn-secondary" onclick="history.go(-1)">Cancel</button>
-               <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
+               <button type="button" id="submit" name="submit" class="btn btn-secondary" onclick="history.go(-1)">취소</button>
+               <button type="submit" id="submit" name="submit" class="btn btn-primary">수정</button>
+               <button type="button" id="submit" name="submit" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/DelController'" >회원탈퇴</button>
             </div>
          </div>
       </div>
